@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+
+      <div class="panel panel-primary">
+       
+        <div class="panel-heading clearfix">
+          <span>Welcome to the Vehicle Locator application.</span>
+          <div class="btn-group pull-right">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#locationModal">
+              <i class="glyphicon glyphicon-cog"></i>
+            </button>
+           
+            <button data-toggle="collapse" data-target="#mapsPanelBody" class="btn btn-primary" >
+              <i class="glyphicon glyphicon-minus"></i>    
+            </button>
+      
+           
+          </div>
+      
+        </div>
+
+        <div id="mapsPanelBody" class="panel-body">
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div #map style="width: 100%; height: 500px"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-2">
+      <messages></messages>
+    </div>
+  </div>
+</div>
+
+<div id="locationModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Change Centre</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="panel panel-primary">
+
+          <div class="panel-body">
+
+            <div class="form-group">
+              <label for="latitudeId">Latitude</label>
+              <input class="form-control" id="latitudeId" type="number" [(ngModel)]="lat"/>
+            </div>
+
+            <div class="form-group">
+              <label for="longitudeId">Longitude</label>
+              <input class="form-control" id="longitudeId" type="number" [(ngModel)]="lng"/>
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-primary"  (click)="changeCentre()">Change Centre</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

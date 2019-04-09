@@ -1,0 +1,31 @@
+<div class="panel panel-primary" *ngIf="vehicle">
+    <div class="panel-heading">
+        <h3 class="panel-title">Vehicle Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="model">Model</label>
+            <input id="model" class="form-control" [(ngModel)]="vehicle.model" />
+        </div>
+
+        <div class="form-group">
+            <label for="make">Make</label>
+            <input id="make" class="form-control" [(ngModel)]="vehicle.make" />
+        </div>
+
+        <div class="form-group">
+            <label for="year">Year</label>
+            <input id="year" class="form-control" [(ngModel)]="vehicle.year" />
+        </div>
+
+        <div class="form-group">
+            <label for="plate">Plate</label>
+            <input id="plate" class="form-control" [(ngModel)]="vehicle.plate" />
+        </div>
+
+        <div class="panel-footer">
+            <button class="btn btn-primary" (click)="save()">Save</button>
+            <button class="btn btn-default" (click)="cancel()">Cancel</button>
+        </div>
+
+    </div>

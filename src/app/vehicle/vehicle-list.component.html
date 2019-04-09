@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Vehicle List</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-primary" (click)="addVehicle()">
+      Add New Vehicle
+    </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <table class="table table-bordered table-striped table-condensed" style="margin-top:20px">
+            <thead>
+                <tr>
+                    <th>Edit</th>
+                    <th>Model</th>                    
+                    <th>Make</th>
+                    <th class="text-right">Year</th>
+                    <th>Plate</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vehicle of vehicles">
+                    <td>
+                        <a href="#" class="btn btn-primary" [routerLink]="['/vehicle', vehicle.id]">
+            <i class="glyphicon glyphicon-pencil"></i>
+          </a>
+                    </td>
+                    <td>{{vehicle.model}}</td>
+                    <td>{{vehicle.make}}</td>                    
+                    <td class="text-right">{{vehicle.year}}</td>
+                    <td>{{vehicle.plate}}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteVehicle(vehicle.id)">
+            <i class="glyphicon glyphicon-trash"></i>
+          </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

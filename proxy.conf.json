@@ -1,0 +1,30 @@
+{
+  "/mgmt-api/*": {
+    "target": "http://3.91.206.177:8085",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/mgmt-api": ""
+    }
+  },  
+    "/websocket-api/*" : {
+      "target": "http://3.91.206.177:8084/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "ws":true,
+      "pathRewrite": {
+        "^/websocket-api": ""
+      }
+  },
+  "/cache-api/*": {
+    "target": "http://3.91.206.177:8088/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/cache-api": ""
+      }
+  }
+}

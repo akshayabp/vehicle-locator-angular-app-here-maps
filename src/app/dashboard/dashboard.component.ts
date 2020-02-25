@@ -1,13 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { MouseEvent } from '@agm/core';
-
 import Stomp from 'stompjs';
 import SockJS from 'sockjs-client';
 
 import { MessageService } from '../messages/message.service';
 import {DashboardService} from './dashboard.service';
 
-import { HOSTNAME, WEBSOCKET_PORT } from '../../environments/environment';
+import { HOSTNAME, WEBSOCKET_PORT, WEBSOCKET_URL } from '../../environments/environment';
 
 import { environment } from '../../environments/environment';
 
@@ -31,7 +29,7 @@ export class DashboardComponent implements OnInit {
   env = environment;
 
 
-  private serverUrl = 'http://' + HOSTNAME + ':' + WEBSOCKET_PORT + '/log-socket';
+  private serverUrl = WEBSOCKET_URL;
 
   private stompClient;
 
@@ -103,7 +101,9 @@ export class DashboardComponent implements OnInit {
         let bubble =  new H.ui.InfoBubble(event.target.getPosition(), {
           content:  'Route ID:'+markerData.route_id +'<br/>'+
           'Driver ID:'+markerData.driver_id+'<br/>'+
-          'Vehicle ID:'+markerData.vehicle_id
+          'Driver Name:'+resp.driver.name+'<br/>'+
+          'Vehicle ID:'+markerData.vehicle_id+'<br/>'+
+          'Vehicle Plate:'+resp.vehicle.plate
       });
       that.ui.addBubble(bubble);
       }, (error)=>{

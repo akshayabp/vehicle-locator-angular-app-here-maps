@@ -4,7 +4,7 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 
-import {HOSTNAME, PORT} from '../../environments/environment';
+import {HOSTNAME, PORT, ROUTE_DESCRIPTION_URL} from '../../environments/environment';
 
 @Injectable()
 export class DashboardService {
@@ -13,7 +13,7 @@ export class DashboardService {
     }
 
     getRouteDescription(id:string):Observable<any> {
-        return this.http.get<any>('http://'+HOSTNAME+':'+8088+'/route/'+id);
+        return this.http.get<any>(ROUTE_DESCRIPTION_URL +'/'+id);
     }
 
 }
